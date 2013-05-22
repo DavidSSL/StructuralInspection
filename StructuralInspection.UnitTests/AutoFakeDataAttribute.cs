@@ -4,9 +4,9 @@ using Ploeh.AutoFixture.Xunit;
 
 namespace StructuralInspection.UnitTests
 {
-    public class AutoFakeDataAttribute : AutoDataAttribute
+    internal class AutoFakeDataAttribute : AutoDataAttribute
     {
-        public AutoFakeDataAttribute()
+        internal AutoFakeDataAttribute()
             : base(new Fixture().Customize(new AutoFakeItEasyCustomization()))
         {
         }

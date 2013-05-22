@@ -1,28 +1,29 @@
 ﻿using FakeItEasy;
+using Ploeh.AutoFixture.Xunit;
 using Xunit;
+using Xunit.Extensions;
 
 namespace StructuralInspection.UnitTests
 {
     public class BasketTests
     {
-        [Fact]
-        public void AcceptReturnsCorrectResult()
+        [Theory, AutoCompositeFakeData]
+        public void AcceptReturnsCorrectResult(
+             [Frozen]IBasketVisitor v1
+            , [Frozen]IBasketVisitor v2
+            , [Frozen]IBasketVisitor v3
+            , [Frozen]IBasketElement e1Stub
+            , [Frozen]IBasketElement e2Stub
+            , Basket sut
+            )
         {
             // Fixture setup
-            var v1 = A.Fake<IBasketVisitor>();
-            var v2 = A.Fake<IBasketVisitor>();
-            var v3 = A.Fake<IBasketVisitor>();
-
-            var e1Stub = A.Fake<IBasketElement>();
-            var e2Stub = A.Fake<IBasketElement>();
-
             A.CallTo(() => e1Stub.Accept(v1)).Returns(v2);
             A.CallTo(() => e2Stub.Accept(v2)).Returns(v3);
-            var sut = new Basket(e1Stub, e2Stub);
 
             // Exercise system
             var actual = sut.Accept(v1);
-            
+
             // Verify outcome
             Assert.Same(v3, actual);
             // Fixture teardown
