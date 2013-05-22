@@ -10,5 +10,10 @@
         }
 
         public decimal Amount { get { return _amount; } }
+
+        public IBasketVisitor Accept(IBasketVisitor visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

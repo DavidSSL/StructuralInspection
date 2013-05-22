@@ -1,4 +1,5 @@
-﻿using Ploeh.AutoFixture.Xunit;
+﻿using FakeItEasy;
+using Ploeh.AutoFixture.Xunit;
 using Xunit;
 using Xunit.Extensions;
 
@@ -27,6 +28,23 @@ namespace StructuralInspection.UnitTests
             // Verify outcome
             Assert.IsAssignableFrom<IBasketElement>(sut);
             // Fixture teardown
+        }
+
+        [Theory, AutoData]
+        public void AcceptReturnCorrectResponse(
+            int dummyAmount)
+        {
+            var expected = A.Fake<IBasketVisitor>();
+
+            var sut = new Discount(dummyAmount);
+
+            var visitorStub = A.Fake<IBasketVisitor>();
+
+            A.CallTo(() => visitorStub.Visit(sut)).Returns(expected);
+
+            var actual = sut.Accept(visitorStub);
+
+            Assert.Same(expected, actual);
         }
     }
 }
