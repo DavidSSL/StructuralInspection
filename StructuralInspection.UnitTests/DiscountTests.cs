@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Ploeh.AutoFixture.Xunit;
+using Xunit;
 using Xunit.Extensions;
 
 namespace StructuralInspection.UnitTests
@@ -13,6 +14,19 @@ namespace StructuralInspection.UnitTests
             var sut = new Discount(expected);
             var actual = sut.Amount;
             Assert.Equal(expected, actual);
+        }
+
+        [Theory, AutoData]
+        public void SutIsBasketElement(
+            int dummyAmount)
+        {
+            // Fixture setup
+            
+            // Exercise system
+            var sut = new Discount(dummyAmount);
+            // Verify outcome
+            Assert.IsAssignableFrom<IBasketElement>(sut);
+            // Fixture teardown
         }
     }
 }

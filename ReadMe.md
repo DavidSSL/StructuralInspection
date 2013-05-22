@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This code is based upon the [blog post][http://blog.ploeh.dk/2013/04/04/structural-inspection/]
+This code is based upon the [blog post](http://blog.ploeh.dk/2013/04/04/structural-inspection/).
 
 Disclaimer
 ----------

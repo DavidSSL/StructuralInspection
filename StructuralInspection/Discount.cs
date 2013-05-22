@@ -1,6 +1,6 @@
 ﻿namespace StructuralInspection
 {
-    public class Discount
+    public class Discount: IBasketElement
     {
         private readonly decimal _amount;   
 
