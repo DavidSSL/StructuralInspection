@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoFakeDataAttribute.cs" />
+    <Compile Include="BasketTests.cs" />
     <Compile Include="DiscountTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

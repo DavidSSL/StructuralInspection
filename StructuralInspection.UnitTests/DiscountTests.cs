@@ -1,5 +1,4 @@
-﻿using System;
-using FakeItEasy;
+﻿using FakeItEasy;
 using Ploeh.AutoFixture.Xunit;
 using Xunit;
 using Xunit.Extensions;
