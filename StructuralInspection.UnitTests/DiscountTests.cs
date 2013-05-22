@@ -1,4 +1,5 @@
-﻿using FakeItEasy;
+﻿using System;
+using FakeItEasy;
 using Ploeh.AutoFixture.Xunit;
 using Xunit;
 using Xunit.Extensions;
@@ -19,27 +20,24 @@ namespace StructuralInspection.UnitTests
 
         [Theory, AutoData]
         public void SutIsBasketElement(
-            int dummyAmount)
+            Discount sut)
         {
             // Fixture setup
             
             // Exercise system
-            var sut = new Discount(dummyAmount);
+          
             // Verify outcome
             Assert.IsAssignableFrom<IBasketElement>(sut);
             // Fixture teardown
         }
 
-        [Theory, AutoData]
+        [Theory, AutoFakeData]
         public void AcceptReturnCorrectResponse(
-            int dummyAmount)
+            IBasketVisitor expected
+            , IBasketVisitor visitorStub
+            , Discount sut
+            )
         {
-            var expected = A.Fake<IBasketVisitor>();
-
-            var sut = new Discount(dummyAmount);
-
-            var visitorStub = A.Fake<IBasketVisitor>();
-
             A.CallTo(() => visitorStub.Visit(sut)).Returns(expected);
 
             var actual = sut.Accept(visitorStub);
