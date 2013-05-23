@@ -42,11 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basket.cs" />
+    <Compile Include="BasketItem.cs" />
+    <Compile Include="BasketTotal.cs" />
+    <Compile Include="BasketTotalVisitor.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="IBasketElement.cs" />
     <Compile Include="IBasketVisitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -60,6 +60,7 @@
     <Compile Include="AutoCompositeFakeDataAttribute.cs" />
     <Compile Include="AutoFakeDataAttribute.cs" />
     <Compile Include="BasketTests.cs" />
+    <Compile Include="BasketTotalVisitorTests.cs" />
     <Compile Include="DiscountTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

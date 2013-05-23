@@ -2,6 +2,6 @@
 {
     public interface IBasketElement
     {
-        IBasketVisitor Accept(IBasketVisitor visitorStub);
+        IBasketVisitor Accept(IBasketVisitor visitor);
     }
 }
